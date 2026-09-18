@@ -32,21 +32,15 @@ steps:
       packages: ''
 
   - name: Install Android SDK
-    shell: bash
     run: |
       yes | sdkmanager --licenses >/dev/null || true
-      sdkmanager --install \
-        "platform-tools" \
-        "platforms;android-36" \
-        "build-tools;36.0.0"
+      sdkmanager --install "platform-tools" "platforms;android-36" "build-tools;36.0.0"
 
   - name: Restore debug keystore
-    shell: bash
     run: |
       if [ -f debug.keystore.base64 ]; then
         base64 --decode debug.keystore.base64 > debug.keystore
       fi
-
       test -f debug.keystore
 
   - name: Set up Gradle
@@ -55,12 +49,10 @@ steps:
       gradle-version: '9.6.0'
 
   - name: Build debug APK
-    shell: bash
     run: |
       gradle --no-daemon --stacktrace assembleDebug
 
   - name: Find APK
-    shell: bash
     run: |
       find . -type f -name '*.apk' -print
 
