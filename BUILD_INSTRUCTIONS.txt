@@ -1,0 +1,9 @@
+IMPORTANT:
+This is a ZIP archive. GitHub will correctly report the ZIP itself as a binary file.
+Do NOT open the .zip in GitHub's text editor.
+
+Extract the archive into the repository root. After extraction, the editable workflow is:
+.github/workflows/build-apk.yml
+
+The workflow restores debug.keystore, installs Android SDK 36.1, builds app-debug.apk,
+and uploads the APK as a GitHub Actions artifact.

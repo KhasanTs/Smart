@@ -1,0 +1,20 @@
+{
+  "name": "RuVideoHub (Android build)",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21"
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-gradle",
+        "redhat.java",
+        "fwcd.kotlin"
+      ]
+    }
+  },
+  "waitFor": "postCreateCommand"
+}
